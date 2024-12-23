@@ -1,0 +1,47 @@
+const contentData = [
+    {
+      id: 1,
+      type: "✍️ Article",
+      image: {Post1}    ,
+      title: "What if famous brands had regular fonts? Meet RegulaBrands!",
+      description:
+        "I've worked in UX for the better part of a decade. From now on, I plan to reimagine...",
+      author: "Sarthak Kamra",
+      views: "1.4k",
+    },
+    {
+      id: 2,
+      type: "🗓️ Meetup",
+      image: {Post2},
+      title: "Finance & Investment Elite Social Mixer @Lujiazui",
+      description: "Join us for a finance and investment social mixer event!",
+      date: "Fri, 12 Oct, 2018",
+      location: "Ahmedabad, India",
+      author: "Ronal Jones",
+      views: "1.4k",
+      link: "Visit Website",
+    },
+    {
+      id: 3,
+      type: "🔬 Education",
+      image: {Post3},
+      title:
+        "Tax Benefits for Investment under National Pension Scheme Launched by Government",
+      description:
+        "Learn about the new tax benefits for investments under the National Pension Scheme.",
+      author: "Sarah West",
+      views: "1.4k",
+    },
+    {
+      id: 4,
+      type: "💼 Job",
+      image: "https://via",
+      title: "Software Developer",
+      description:
+        "Innovaccer Analytics is hiring for a software developer position.",
+      location: "Noida, India",
+      author: "Ronal Jones",
+      views: "1.4k",
+      link: "Apply on Timesjobs",
+    },
+  ]; 

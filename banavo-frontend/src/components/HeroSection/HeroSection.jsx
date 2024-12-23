@@ -1,13 +1,13 @@
 import React from "react";
 import { FiArrowLeft } from "react-icons/fi"; // Importing the left arrow icon from react-icons
-import Post from "./image.png";
+import Post from "./post1.png";
 import Post2 from "./post2.png";
 
 const HeroSection = () => {
   return (
     <section
       className="position-relative"
-      style={{ minHeight: "250px", minWidth: "360px"     }}
+      style={{ minHeight: "250px", minWidth: "360px" }}
     >
       {/* Image for desktop */}
       <div className="position-relative">
@@ -23,19 +23,31 @@ const HeroSection = () => {
           }}
         />
         <div
+          className="d-flex align-items-end  justify-content-center"
           style={{
-            position: "absolute",
+            position: "absolute ",
+
             top: 0,
             left: 0,
             width: "100%",
             height: "100%",
             backgroundColor: "rgba(0, 0, 0, 0.5)", // Black overlay
           }}
-        ></div>
+        >
+          <div className="container d-none d-md-block  position-absolute text-white">
+            <h1 className="fw-bold text-start">Computer Engineering</h1>
+            <p
+              className=""
+              style={{ fontSize: "0.9rem", marginBottom: "30px" }}
+            >
+              142,765 Computer Engineers follow this
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Image for mobile */}
-      <div className="position-relative">
+      <div className="position-relative mt-3">
         <img
           src={Post2}
           alt="Hero Banner Mobile"
@@ -56,17 +68,20 @@ const HeroSection = () => {
             height: "100%",
             backgroundColor: "rgba(0, 0, 0, 0.5)", // Black overlay
           }}
-        ></div>
+        >
+          <div
+            className="container  d-block d-lg-none  position-absolute text-white "
+            style={{ top: "70%", transform: "translateY(-50%)" }}
+          >
+            <h1 className="fw-bold text-start">Computer Engineering</h1>
+            <p className="" style={{ fontSize: "0.9rem" }}>
+              142,765 Computer Engineers follow this
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Text and Information */}
-      <div className="container position-absolute top-50 start-50 translate-middle text-center text-white">
-        <h1 className="fw-bold">Computer Engineering</h1>
-        <p className="d-none d-sm-block">
-          142,765 Computer Engineers follow this
-        </p>
-      </div>
-
       {/* Arrow and Join Buttons on Mobile */}
       <div className="d-flex d-md-none justify-content-between align-items-center position-absolute w-100 top-0 mt-3 px-3">
         {/* Arrow Button (Left side) */}

@@ -1,5 +1,4 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { FaMapMarkerAlt, FaThumbsUp } from "react-icons/fa"; // For icons
 
 const RecommendedGroups = () => {
@@ -11,10 +10,7 @@ const RecommendedGroups = () => {
   ];
 
   return (
-    <div
-      className="container my-4 p-3 border rounded shadow-sm"
-      style={{ maxWidth: "400px" }}
-    >
+    <div className="container my-4 p-3 rounded d-none d-md-block">
       {/* Location Input */}
       <div className="d-flex align-items-center mb-3">
         <FaMapMarkerAlt className="me-2" />
@@ -22,7 +18,7 @@ const RecommendedGroups = () => {
           type="text"
           className="form-control"
           placeholder="Enter your location"
-          style={{ flex: 1 }}
+          
         />
         <button className="btn btn-link text-dark ms-2">✖</button>
       </div>
