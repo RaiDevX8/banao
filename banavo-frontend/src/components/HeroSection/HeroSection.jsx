@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiArrowLeft } from "react-icons/fi"; // Importing the left arrow icon from react-icons
 import Post from "./post1.png";
 import Post2 from "./post2.png";
 
 const HeroSection = () => {
+      const [isJoined, setIsJoined] = useState(false);
+
+      // Handle button click to join/leave the group
+      const handleJoinLeave = () => {
+        setIsJoined((prevState) => !prevState); // Toggle join/leave state
+      };
   return (
     <section
       className="position-relative"
@@ -90,8 +96,14 @@ const HeroSection = () => {
         </button>
 
         {/* Join Button (Right side) */}
-        <button className="border btn btn-link text-white join-btn">
-          Join
+        <button
+          className={`border btn btn-link text-white join-btn ${
+            isJoined ? "bg-transparent" : "bg-transparent"
+          }`}
+          style={{textDecoration: "none"}}
+          onClick={handleJoinLeave}
+        >
+          {isJoined ? "Leave Group" : "Join Group"}
         </button>
       </div>
     </section>

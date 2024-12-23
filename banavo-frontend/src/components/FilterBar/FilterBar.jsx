@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Dropdown, Button } from "react-bootstrap";
-import { FaUserPlus } from "react-icons/fa";
+import { FaUserPlus, FaUserTimes } from "react-icons/fa"; // Added FaUserTimes for Leave icon
 import { Link } from "react-router-dom";
+import { IoMdExit } from "react-icons/io";
+
 import { PostsContext } from "../../context/PostProvider";
-import  { useContext } from "react";
 
 const FilterSection = () => {
-      const { allPosts } = useContext(PostsContext);
+  const { allPosts } = useContext(PostsContext);
+  const [isJoined, setIsJoined] = useState(false); // State to track if the user has joined
+
+  // Handle join/leave button click
+  const handleJoinLeave = () => {
+    setIsJoined((prevState) => !prevState); // Toggle join/leave state
+  };
 
   return (
     <div className="bg-white">
       {/* For Mid and Large Devices */}
-      <div className="d-none d-md-flex border-bottom  align-items-center justify-content-around px-3 py-2">
+      <div className="d-none d-md-flex border-bottom align-items-center justify-content-around px-3 py-2">
         {/* Filter Options */}
         <div className="d-flex gap-3 ">
           <Link
@@ -76,10 +83,14 @@ const FilterSection = () => {
             </Dropdown.Menu>
           </Dropdown>
 
-          {/* Join Group Button */}
-          <Button variant="primary" className="d-flex align-items-center gap-2">
-            <FaUserPlus />
-            Join Group
+          {/* Join/Leave Group Button */}
+          <Button
+            variant={isJoined ? "light" : "primary"} // Toggle variant between light and primary
+            className="d-flex align-items-center gap-2"
+            onClick={handleJoinLeave} // Toggle the state on click
+          >
+            {isJoined ? <IoMdExit /> : <FaUserPlus />} {/* Toggle icon */}
+            {isJoined ? "Leave Group" : "Join Group"} {/* Toggle text */}
           </Button>
         </div>
       </div>

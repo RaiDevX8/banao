@@ -211,7 +211,7 @@ const Home = () => {
 
   return (
     <div className="container d-flex p-4 w-100">
-<MobileLoginModel/>
+{/* <MobileLoginModel/> */}
       <div className="w-100">{renderContent()}</div>
       <div>
         <RecommendedGroups />
