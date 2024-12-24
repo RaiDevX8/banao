@@ -1,9 +1,31 @@
-import React from "react";
-import Side from "./image.png";
+import React, { useState } from "react";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import Side from "./image.png";
 
-const SignupModal = ({ onClose }) => {
+const SignupModal = ({ setIsSignedUp }) => {
+  // Removed onClose prop
+  const [name, setName] = useState("charan");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    navigate("/");
+  };
+
+  const handleSignup = () => {
+    if (password === confirmPassword) {
+      setIsSignedUp(true); // Set the signup state to true
+      navigate("/"); // Redirect to the homepage or other page
+    } else {
+      alert("Passwords do not match!");
+    }
+  };
+
   return (
     <div
       className="modal show d-none d-lg-block d-md-block" // Visible only on large devices
@@ -30,7 +52,7 @@ const SignupModal = ({ onClose }) => {
                 border: "none",
                 color: "black",
               }}
-              onClick={onClose}
+              onClick={handleClose}
             >
               <AiOutlineClose />
             </button>
@@ -50,7 +72,6 @@ const SignupModal = ({ onClose }) => {
           </div>
 
           <div className="modal-body" style={{ padding: "1rem" }}>
-            {/* Large Devices: Form and Illustration */}
             <div className="row h-100">
               <div className="col-md-6 d-flex flex-column">
                 <div>
@@ -63,6 +84,8 @@ const SignupModal = ({ onClose }) => {
                         type="text"
                         className="form-control"
                         placeholder="First Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                       />
                       <input
                         type="text"
@@ -76,6 +99,8 @@ const SignupModal = ({ onClose }) => {
                       type="email"
                       className="form-control"
                       placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div>
@@ -83,6 +108,8 @@ const SignupModal = ({ onClose }) => {
                       type="password"
                       className="form-control"
                       placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
                   <div className="mb-3">
@@ -90,11 +117,14 @@ const SignupModal = ({ onClose }) => {
                       type="password"
                       className="form-control"
                       placeholder="Confirm Password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                   </div>
                   <button
                     type="button"
                     className="btn btn-primary rounded-pill w-100"
+                    onClick={handleSignup}
                   >
                     Create Account
                   </button>
@@ -113,13 +143,7 @@ const SignupModal = ({ onClose }) => {
               </div>
               <div className="col-md-6 d-flex flex-column justify-content-center align-items-center">
                 <p className="text-center mb-3" style={{ fontSize: "0.9rem" }}>
-                  Already have an account?{" "}
-                  <a
-                    href="/"
-                    style={{ color: "#007bff", textDecoration: "none" }}
-                  >
-                    Sign In
-                  </a>
+                  Already have an account? <Link to={"/login"}>Login</Link>
                 </p>
                 <img
                   src={Side}

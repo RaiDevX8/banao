@@ -1,15 +1,21 @@
 import React from "react";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
 
 const MobileSignupModal = ({ onClose }) => {
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    navigate("/");
+  };
   return (
     <div
       className="modal d-flex show d-block d-lg-none "
       tabIndex="-1"
       style={{
         background: "rgba(0, 0, 0, 0.5)",
-        
+
         bottom: "0",
         left: "0",
         width: "100%",
@@ -34,6 +40,7 @@ const MobileSignupModal = ({ onClose }) => {
           <div
             className="position-absolute top-0 end-0 m-2"
             style={{ cursor: "pointer", zIndex: 1055 }}
+            onClick={handleClose}
           >
             <button
               type="button"
@@ -109,12 +116,8 @@ const MobileSignupModal = ({ onClose }) => {
                 Sign up with Google
               </button>
             </div>
-            <p className="text-center mt-3">
-              Already have an account?{" "}
-              <a href="/" style={{ color: "#007bff", textDecoration: "none" }}>
-                Sign In
-              </a>
-            </p>
+            <Link to={"/m-login"}>Sign up</Link>
+
             <p className="text-center" style={{ fontSize: "0.8rem" }}>
               By signing up, you agree to our{" "}
               <a href="/" style={{ color: "#007bff", textDecoration: "none" }}>

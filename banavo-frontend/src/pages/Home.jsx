@@ -12,9 +12,7 @@ import dp2 from "../assets/dp2.png";
 import dp3 from "../assets/dp3.png";
 
 import FloatingActionButton from "../components/FloatingActionButton/FloadtingActionButton";
-import SignupModal from "../components/signup/SignupModal";
-import LoginModal from "../components/Login/LoginModel";
-import MobileLoginModel from "../components/Login/MobileLoginModel"
+
 const Home = () => {
   const { category } = useParams();
 

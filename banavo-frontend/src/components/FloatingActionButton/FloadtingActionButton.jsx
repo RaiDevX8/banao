@@ -11,7 +11,7 @@ const FloatingActionButton = () => {
 
   return (
     <div
-      className="d-block"
+      className="d-block d-lg-none d-md-none"
       style={{
         position: "fixed",
         bottom: "20px",

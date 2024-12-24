@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
 import { GoSearch } from "react-icons/go";
 import SignupModal from "../signup/SignupModal";
+import { Link } from "react-router-dom";
+import dp3 from "../../assets/dp3.png";
 
-const Header = () => {
+const Header = ({ isSignedUp }) => {
   const [showSignupModal, setShowSignupModal] = useState(false);
 
-  const openSignupModal = () => setShowSignupModal(true);
   const closeSignupModal = () => setShowSignupModal(false);
+
+  // Function to handle successful signup
+  const handleSignupSuccess = (name) => {
+    closeSignupModal(); // Close the signup modal
+  };
 
   return (
     <div className="border bg-light fixed-top">
@@ -19,7 +25,8 @@ const Header = () => {
           alt="Logo"
           className="mb-2 mb-md-0"
           style={{ width: "150px" }}
-        />{" "}
+        />
+
         {/* Search Bar */}
         <div
           className="gap-1 bg-white d-flex align-items-center border rounded-pill px-2 mx-auto mx-md-0"
@@ -36,19 +43,37 @@ const Header = () => {
             }}
           />
         </div>
+
         {/* Account Section */}
         <div className="d-flex align-items-center mt-2 mt-md-0">
-          <span className="text-muted me-1">Create account.</span>
-          <a href="#" className="text-primary me-1" onClick={openSignupModal}>
-            It’s free!
-          </a>
-          <i className="bi bi-caret-down-fill"></i>
+          {isSignedUp ? (
+            <div className="d-flex align-items-center">
+              <img
+                src={dp3} 
+                alt="User"
+                className="rounded-circle me-2"
+                style={{ width: "34px", height: "34px" }}
+              />
+              <span className="text-muted me-2">charan</span>
+              <i className="bi bi-caret-down-fill"></i>
+            </div>
+          ) : (
+            <>
+              <span className="text-muted me-1">Create account.</span>
+              <Link to={"/signup"}>SignUp</Link>
+              <i className="bi bi-caret-down-fill"></i>
+            </>
+          )}
         </div>
       </div>
 
-      {/* For Mobile Devices */}
       <div className="d-md-none" style={{ height: "24px" }}></div>
-      {showSignupModal && <SignupModal onClose={closeSignupModal} />}
+      {showSignupModal && (
+        <SignupModal
+          onClose={closeSignupModal}
+          onSignupSuccess={handleSignupSuccess}
+        />
+      )}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FiMoreHorizontal, FiShare2, FiEye } from "react-icons/fi"; // Importing React Icons
 import "bootstrap/dist/css/bootstrap.min.css"; // Only for styling
-import { Dropdown, Button } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const ArticleCard = ({

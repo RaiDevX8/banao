@@ -2,10 +2,13 @@ import React from "react";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import Side from "./image.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginModal = () => {
+  const navigate = useNavigate(); 
+
   const handleClose = () => {
-    console.log("Close clicked");
+    navigate("/"); 
   };
 
   return (
@@ -34,7 +37,7 @@ const LoginModal = () => {
                 border: "none",
                 color: "black",
               }}
-              onClick={handleClose}
+              onClick={handleClose} // Keep the onClick here only
             >
               <AiOutlineClose />
             </button>
@@ -95,24 +98,12 @@ const LoginModal = () => {
                   </button>
                 </div>
                 <p className="text-center mt-3" style={{ fontSize: "0.9rem" }}>
-                  forgot Password?{" "}
-                  <a
-                    href="/"
-                    style={{ color: "#007bff", textDecoration: "none" }}
-                  >
-                    Sign In
-                  </a>
+                  Forgot Password? <Link to={"/signup"}>Signup</Link>
                 </p>
               </div>
               <div className="col-md-6 d-flex flex-column justify-content-center align-items-center">
                 <p className="text-center mb-3" style={{ fontSize: "0.9rem" }}>
-                  Already have an account?{" "}
-                  <a
-                    href="/"
-                    style={{ color: "#007bff", textDecoration: "none" }}
-                  >
-                    Sign In
-                  </a>
+                  Already have an account? <Link to={"/signup"}>Signup</Link>
                 </p>
                 <img
                   src={Side}

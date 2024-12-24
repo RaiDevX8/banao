@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Dropdown, Button } from "react-bootstrap";
-import { FaUserPlus, FaUserTimes } from "react-icons/fa"; // Added FaUserTimes for Leave icon
+import { FaUserPlus } from "react-icons/fa"; // Added FaUserTimes for Leave icon
 import { Link } from "react-router-dom";
 import { IoMdExit } from "react-icons/io";
 
